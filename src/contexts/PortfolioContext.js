@@ -22,9 +22,20 @@ export default function PortfolioContext({ children }) {
     localStorage.setItem("techSkills", JSON.stringify(techSkills));
   }, [projects || techSkills]);
 
+  const deleteProject = (id) => {
+    setProjects(projects.filter((project) => project.id !== id));
+    setTechSkills(techSkills.filter((tech) => tech.id !== id));
+  };
+
   return (
     <MyPortfolioContext.Provider
-      value={{ projects, setProjects, techSkills, setTechSkills }}
+      value={{
+        projects,
+        setProjects,
+        techSkills,
+        setTechSkills,
+        deleteProject,
+      }}
     >
       {children}
     </MyPortfolioContext.Provider>

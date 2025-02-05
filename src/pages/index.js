@@ -1,12 +1,12 @@
 import Link from "next/link";
+import NavBar from "@/Components/Navbar";
+import Footer from "@/Components/Footer";
 
 export default function Home() {
   return (
-    <div>
-      <Link href="/admin">
-        <p>Admin</p>
-      </Link>
-      <img src="/images/khira.jpg" alt="Example" />
+    <div className="bg-gray-900">
+      <NavBar />
+      <Footer />
     </div>
   );
 }
