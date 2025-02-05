@@ -27,6 +27,10 @@ export default function PortfolioContext({ children }) {
     setTechSkills(techSkills.filter((tech) => tech.id !== id));
   };
 
+  const updateDesciption = (text, id) => {
+    console.log(projects);
+  };
+
   return (
     <MyPortfolioContext.Provider
       value={{
@@ -35,6 +39,7 @@ export default function PortfolioContext({ children }) {
         techSkills,
         setTechSkills,
         deleteProject,
+        updateDesciption,
       }}
     >
       {children}

@@ -3,7 +3,7 @@ import { FaGithub } from "react-icons/fa";
 
 export default function NavBar() {
   return (
-    <div className="bg-gray-950 font-bold text-gray-300 flex h-4 justify-between items-center p-10">
+    <div className="font-bold  flex h-4 justify-between items-center p-10">
       <div></div>
       <div className="flex gap-5 items-center">
         <Link href="/">

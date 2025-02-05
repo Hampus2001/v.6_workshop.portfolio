@@ -1,6 +1,7 @@
 import { MyPortfolioContext } from "@/contexts/PortfolioContext";
 import { useContext, useEffect, useState } from "react";
 import NavBar from "@/Components/Navbar";
+import Card from "@/Components/Card";
 
 export default function Admin() {
   const permission = useContext(MyPortfolioContext);
@@ -52,7 +53,7 @@ export default function Admin() {
   }
 
   return (
-    <div>
+    <div className="flex flex-col w-full">
       <NavBar />
       <div className="flex flex-col items-center p-10">
         {!loggedIn && (
@@ -60,20 +61,17 @@ export default function Admin() {
             <input
               type="text"
               onChange={(e) => setInputUsername(e.target.value)}
-              className="text-black px-4 py-2"
+              className="px-4 py-2"
               placeholder="Username"
             />
             <input
               type="password"
               onChange={(e) => setInputPassword(e.target.value)}
-              className="text-black px-4 py-2"
+              className=" px-4 py-2"
               placeholder="Password"
             />
             <div className="flex gap-5">
-              <button
-                className="bg-white text-black"
-                onClick={() => handleLogin()}
-              >
+              <button className="bg-white " onClick={() => handleLogin()}>
                 Log in
               </button>
             </div>
@@ -83,7 +81,7 @@ export default function Admin() {
           <div className="flex flex-col items-center gap-2">
             <form className="flex flex-col gap-2" onSubmit={addProject}>
               <input
-                className="text-black"
+                className=""
                 type="text"
                 placeholder="Project Name:"
                 onChange={(e) =>
@@ -91,7 +89,7 @@ export default function Admin() {
                 }
               />
               <input
-                className="text-black"
+                className=""
                 type="text"
                 placeholder="Description:"
                 onChange={(e) =>
@@ -99,7 +97,7 @@ export default function Admin() {
                 }
               />
               <input
-                className="text-black"
+                className=""
                 type="text"
                 placeholder="Link:"
                 onChange={(e) =>
@@ -107,7 +105,6 @@ export default function Admin() {
                 }
               />
               <input
-                className="text-black"
                 type="text"
                 placeholder="Year:"
                 onChange={(e) =>
@@ -115,7 +112,6 @@ export default function Admin() {
                 }
               />
               <input
-                className="text-black"
                 type="text"
                 placeholder="Image:"
                 onChange={(e) =>
@@ -123,7 +119,7 @@ export default function Admin() {
                 }
               />
               <input
-                className="text-black mt-5"
+                className=" mt-5"
                 type="text"
                 placeholder="tech skills:"
                 onChange={(e) => setNewTechSkills(e.target.value)}
@@ -133,30 +129,43 @@ export default function Admin() {
                 Add Project
               </button>
             </form>
-            <ul>
-              {permission.projects.map((project, index) => {
-                return (
-                  <li className="flex gap-3" key={index}>
-                    <h2>title: {project.title}</h2>
-                    <p>Description:{project.description}</p>
-                    <p>Year:{project.year}</p>
-                    <p>Link:{project.link}</p>
-                    <p>Image Tag:{project.image}</p>
-                    <p></p>
-                    <h3>Tech skills:{permission.techSkills[index]}</h3>
-                    <button
-                      onClick={() => permission.deleteProject(project.id)}
-                    >
-                      Delete
-                    </button>
-                  </li>
-                );
-              })}
-            </ul>
-            <button onClick={() => setLoggedIn(false)}>Log out</button>
-            <button onClick={() => console.log(permission)}>logga</button>
           </div>
         )}
+        {permission.projects.map((project, index) => {
+          return (
+            <div
+              className="flex flex-col text-neutral-300 w-full m-10 shadow-lg p-10 rounded-lg dark:bg-neutral-900"
+              key={index}
+            >
+              <img src={project.image} className="h-44 pb-5" />
+              <input
+                className="text-2xl font-bold tracking-widest"
+                value={project.description}
+                onChange={(e) =>
+                  permission.updateDesciption(e.target.value, project.id)
+                }
+              />
+
+              <p className="tracking-wide">{project.description}</p>
+              <p className="py-3">Tech stack: {permission.techSkills[index]}</p>
+              <div className="flex justify-between">
+                <p>Year: {project.year}</p>
+                <a href={project.link}>Link</a>
+              </div>
+              <div className="flex justify-between">
+                <button
+                  className="btn bg-primary text-white"
+                  onClick={() => permission.deleteProject(project.id)}
+                >
+                  Delete
+                </button>
+              </div>
+            </div>
+          );
+        })}
+
+        <button onClick={() => setLoggedIn(false)}>Log out</button>
+        <button onClick={() => console.log(permission)}>logga</button>
       </div>
     </div>
   );

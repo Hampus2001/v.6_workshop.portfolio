@@ -6,7 +6,7 @@ const merriweather = Merriweather({ weight: "400", subsets: ["latin"] });
 
 export default function App({ Component, pageProps }) {
   return (
-    <main className={merriweather.className}>
+    <main className={merriweather.className} data-theme="dark">
       <PortfolioContext>
         <Component {...pageProps} />
       </PortfolioContext>
