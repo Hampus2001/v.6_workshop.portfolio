@@ -3,43 +3,34 @@ import { createContext, useState, useEffect } from "react";
 export const MyPortfolioContext = createContext([]);
 
 export default function PortfolioContext({ children }) {
-  const [projects, setProjects] = useState();
-  const [techSkills, setTechSkills] = useState();
+  const [projects, setProjects] = useState([
+    {
+      image: "image tag",
+      title: "Gemnini",
+      desciption: "Schoolproject",
+      year: "2025",
+      link: "www.github.com",
+      techStack: "nextjs, tailwind, node, git",
+      id: "1234",
+    },
+    {
+      image: "image tag2",
+      title: "Gemnini2",
+      desciption: "Schoolproject2",
+      year: "20252",
+      link: "www.github.com2",
+      techStack: "nextjs, tailwind, node, git2",
+      id: "1234 2",
+    },
+  ]);
 
-  useEffect(() => {
-    // Load data from localStorage on initial render
-    const savedProjects = JSON.parse(localStorage.getItem("projects")) || [];
-    const savedTechSkills =
-      JSON.parse(localStorage.getItem("techSkills")) || [];
-
-    setProjects(savedProjects);
-    setTechSkills(savedTechSkills);
-  }, []);
-
-  //Overwrite localstorage
-  useEffect(() => {
-    localStorage.setItem("projects", JSON.stringify(projects));
-    localStorage.setItem("techSkills", JSON.stringify(techSkills));
-  }, [projects || techSkills]);
-
-  const deleteProject = (id) => {
-    setProjects(projects.filter((project) => project.id !== id));
-    setTechSkills(techSkills.filter((tech) => tech.id !== id));
-  };
-
-  const updateDesciption = (text, id) => {
-    console.log(projects);
-  };
+  //read from local storage
 
   return (
     <MyPortfolioContext.Provider
       value={{
         projects,
         setProjects,
-        techSkills,
-        setTechSkills,
-        deleteProject,
-        updateDesciption,
       }}
     >
       {children}

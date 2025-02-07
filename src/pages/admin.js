@@ -1,10 +1,9 @@
 import { MyPortfolioContext } from "@/contexts/PortfolioContext";
 import { useContext, useEffect, useState } from "react";
 import NavBar from "@/Components/Navbar";
-import Card from "@/Components/Card";
 
 export default function Admin() {
-  const permission = useContext(MyPortfolioContext);
+  const { projects, setProjects } = useContext(MyPortfolioContext);
 
   const [loggedIn, setLoggedIn] = useState(false);
   useEffect(() => {
@@ -21,16 +20,6 @@ export default function Admin() {
     password: "Hampus123",
   });
 
-  const [newProject, setNewProject] = useState({
-    title: "",
-    description: "",
-    link: "",
-    year: "",
-    image: "",
-    id: "",
-  });
-  const [newTechSkills, setNewTechSkills] = useState("");
-
   const [inputUsername, setInputUsername] = useState("");
   const [inputPassword, setInputPassword] = useState("");
 
@@ -45,11 +34,78 @@ export default function Admin() {
     }
   }
 
-  function addProject(event) {
-    event.preventDefault(); // Prevent the default form submission behavior
-    setNewProject({ ...newProject, id: Date.now() });
-    permission.setProjects([...permission.projects, newProject]);
-    permission.setTechSkills([...permission.techSkills, newTechSkills]);
+  const displayProjects = [];
+
+  for (let i = 0; i < projects.length; i++) {
+    displayProjects.push(
+      <div
+        className="flex flex-col text-neutral-300 m-10 shadow-lg p-5 rounded-lg dark:bg-neutral-900 gap-3"
+        key={i}
+      >
+        <input
+          type="text"
+          className="bg-neutral-800 py-20 text-center rounded-t-lg"
+          value={projects[i].image}
+          onChange={(e) => {
+            const newImage = [...projects];
+            newImage[i].image = e.target.value;
+            setProjects(newImage);
+          }}
+        />
+        <input
+          type="text"
+          className="bg-neutral-900 text-3xl"
+          value={projects[i].title}
+          onChange={(e) => {
+            const newTitle = [...projects];
+            newTitle[i].title = e.target.value;
+            setProjects(newTitle);
+          }}
+        />
+        <input
+          type="text"
+          className="bg-neutral-900"
+          value={projects[i].desciption}
+          onChange={(e) => {
+            const newDescription = [...projects];
+            newDescription[i].desciption = e.target.value;
+            setProjects(newDescription);
+          }}
+        />
+        <input
+          type="text"
+          className="bg-neutral-900"
+          value={projects[i].techStack}
+          onChange={(e) => {
+            const newTech = [...projects];
+            newTech[i].techStack = e.target.value;
+            setProjects(newTech);
+          }}
+        />
+        <div className="flex justify-between">
+          <input
+            type="text"
+            className="bg-neutral-900"
+            value={projects[i].year}
+            onChange={(e) => {
+              const newYear = [...projects];
+              newYear[i].year = e.target.value;
+              setProjects(newYear);
+            }}
+          />
+          <input
+            type="text"
+            className="bg-neutral-900 text-end"
+            value={projects[i].link}
+            onChange={(e) => {
+              const newLink = [...projects];
+              newLink[i].link = e.target.value;
+              setProjects(newLink);
+            }}
+          />
+        </div>
+      </div>
+    );
   }
 
   return (
@@ -79,93 +135,12 @@ export default function Admin() {
         )}
         {loggedIn && (
           <div className="flex flex-col items-center gap-2">
-            <form className="flex flex-col gap-2" onSubmit={addProject}>
-              <input
-                className=""
-                type="text"
-                placeholder="Project Name:"
-                onChange={(e) =>
-                  setNewProject({ ...newProject, title: e.target.value })
-                }
-              />
-              <input
-                className=""
-                type="text"
-                placeholder="Description:"
-                onChange={(e) =>
-                  setNewProject({ ...newProject, description: e.target.value })
-                }
-              />
-              <input
-                className=""
-                type="text"
-                placeholder="Link:"
-                onChange={(e) =>
-                  setNewProject({ ...newProject, link: e.target.value })
-                }
-              />
-              <input
-                type="text"
-                placeholder="Year:"
-                onChange={(e) =>
-                  setNewProject({ ...newProject, year: e.target.value })
-                }
-              />
-              <input
-                type="text"
-                placeholder="Image:"
-                onChange={(e) =>
-                  setNewProject({ ...newProject, image: e.target.value })
-                }
-              />
-              <input
-                className=" mt-5"
-                type="text"
-                placeholder="tech skills:"
-                onChange={(e) => setNewTechSkills(e.target.value)}
-              />
-
-              <button type="submit" className="p-5">
-                Add Project
-              </button>
-            </form>
+            {displayProjects}
           </div>
         )}
-        {permission.projects.map((project, index) => {
-          return (
-            <div
-              className="flex flex-col text-neutral-300 w-full m-10 shadow-lg p-10 rounded-lg dark:bg-neutral-900"
-              key={index}
-            >
-              <img src={project.image} className="h-44 pb-5" />
-              <input
-                className="text-2xl font-bold tracking-widest"
-                value={project.description}
-                onChange={(e) =>
-                  permission.updateDesciption(e.target.value, project.id)
-                }
-              />
-
-              <p className="tracking-wide">{project.description}</p>
-              <p className="py-3">Tech stack: {permission.techSkills[index]}</p>
-              <div className="flex justify-between">
-                <p>Year: {project.year}</p>
-                <a href={project.link}>Link</a>
-              </div>
-              <div className="flex justify-between">
-                <button
-                  className="btn bg-primary text-white"
-                  onClick={() => permission.deleteProject(project.id)}
-                >
-                  Delete
-                </button>
-              </div>
-            </div>
-          );
-        })}
 
         <button onClick={() => setLoggedIn(false)}>Log out</button>
-        <button onClick={() => console.log(permission)}>logga</button>
+        <button onClick={() => console.log(projects[0])}>logga</button>
       </div>
     </div>
   );
