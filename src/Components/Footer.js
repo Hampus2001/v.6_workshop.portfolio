@@ -3,7 +3,7 @@ import { FaGithub } from "react-icons/fa";
 
 export default function Footer() {
   return (
-    <div className="flex justify-between  font-bold  h-4 items-center p-10">
+    <div className="flex justify-between bg-base-300 font-bold text-sm h-4 items-center p-10 lg:text-xl">
       <div className="flex gap-5 items-center">
         <Link href="/">
           <p>Home</p>
@@ -18,7 +18,7 @@ export default function Footer() {
         </a>
       </div>
       <div>
-        <p className="text-sm">Made by Hampus Söderlund</p>
+        <p className="text-sm lg:text-xl">Made by Hampus Söderlund</p>
       </div>
     </div>
   );

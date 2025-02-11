@@ -23,6 +23,18 @@ export default function Admin() {
   const [inputUsername, setInputUsername] = useState("");
   const [inputPassword, setInputPassword] = useState("");
 
+  const [newproject, setNewProject] = useState([
+    {
+      image: "",
+      title: "",
+      desciption: "",
+      year: "",
+      link: "",
+      techStack: "",
+      id: "",
+    },
+  ]);
+
   function handleLogin() {
     if (
       credentials.username === inputUsername &&
@@ -39,7 +51,7 @@ export default function Admin() {
   for (let i = 0; i < projects.length; i++) {
     displayProjects.push(
       <div
-        className="flex flex-col text-neutral-300 m-10 shadow-lg p-5 rounded-lg dark:bg-neutral-900 gap-3"
+        className="flex flex-col w-full text-neutral-300 m-10 md:m-0 md:my-10 shadow-lg p-5 rounded-lg dark:bg-neutral-900 gap-3"
         key={i}
       >
         <input
@@ -104,12 +116,20 @@ export default function Admin() {
             }}
           />
         </div>
+        <button
+          onClick={() => {
+            const filteredProjects = projects.filter((_, index) => index !== i);
+            setProjects(filteredProjects);
+          }}
+        >
+          Delete
+        </button>
       </div>
     );
   }
 
   return (
-    <div className="flex flex-col w-full">
+    <div className="flex flex-col">
       <NavBar />
       <div className="flex flex-col items-center p-10">
         {!loggedIn && (
@@ -134,13 +154,87 @@ export default function Admin() {
           </form>
         )}
         {loggedIn && (
-          <div className="flex flex-col items-center gap-2">
-            {displayProjects}
+          <div className="md:w-2/4">
+            <div className="flex flex-col items-center gap-2">
+              <div className="flex flex-col m-10 md:m-0 md:w-full shadow-lg p-5 rounded-lg bg-base-300 text-base-content gap-3 md:gap-10 md:text-2xl">
+                <input
+                  type="text"
+                  className="bg-base-200 py-20 md:py-60 text-center rounded-t-lg"
+                  placeholder="Image tag: "
+                  onChange={(e) => {
+                    const newImage = newproject;
+                    newImage.image = e.target.value;
+                    setNewProject(newImage);
+                  }}
+                />
+                <input
+                  type="text"
+                  className="bg-base-300 text-3xl"
+                  placeholder="Title: "
+                  onChange={(e) => {
+                    const newTitle = newproject;
+                    newTitle.title = e.target.value;
+                    setNewProject(newTitle);
+                  }}
+                />
+                <textarea
+                  type="text"
+                  className="bg-base-300"
+                  placeholder="Description: "
+                  onChange={(e) => {
+                    const newDescription = newproject;
+                    newDescription.desciption = e.target.value;
+                    setNewProject(newDescription);
+                  }}
+                />
+                <input
+                  type="text"
+                  className="bg-base-300"
+                  placeholder="Tech stack: "
+                  onChange={(e) => {
+                    const newTech = newproject;
+                    newTech.techStack = e.target.value;
+                    setNewProject(newTech);
+                  }}
+                />
+                <div className="flex justify-between">
+                  <input
+                    type="text"
+                    className="bg-base-300"
+                    placeholder="year: "
+                    onChange={(e) => {
+                      const newYear = newproject;
+                      newYear.year = e.target.value;
+                      setNewProject(newYear);
+                    }}
+                  />
+                  <input
+                    type="text"
+                    className="bg-base-300 text-end"
+                    placeholder="Link: "
+                    onChange={(e) => {
+                      const newLink = newproject;
+                      newLink.link = e.target.value;
+                      setNewProject(newLink);
+                    }}
+                  />
+                </div>
+                <button
+                  className="bg-base-content text-base-300 rounded-lg py-5"
+                  onClick={() => {
+                    const addProject = [...projects];
+                    addProject.push(newproject);
+                    setProjects(addProject);
+                  }}
+                >
+                  Add Project
+                </button>
+              </div>
+            </div>
+            <div>{displayProjects}</div>
+            <button onClick={() => setLoggedIn(false)}>Log out</button>
           </div>
         )}
-
-        <button onClick={() => setLoggedIn(false)}>Log out</button>
-        <button onClick={() => console.log(projects[0])}>logga</button>
       </div>
     </div>
   );
