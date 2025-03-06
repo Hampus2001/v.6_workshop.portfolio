@@ -1,15 +1,24 @@
 import { MyPortfolioContext } from "@/contexts/PortfolioContext";
 import { useContext, useEffect, useState } from "react";
 import NavBar from "@/Components/Navbar";
+import { HandleImagesContext } from "../contexts/imagesContext";
 
 export default function Admin() {
   const { projects, setProjects } = useContext(MyPortfolioContext);
+  const { images, setImages } = useContext(HandleImagesContext);
 
-  const [loggedIn, setLoggedIn] = useState(false);
-  useEffect(() => {
-    const isLoggedIn = JSON.parse(localStorage.getItem("isLoggedIn")) || false;
-    setLoggedIn(isLoggedIn);
-  }, []);
+  function handleImageUpload(event) {
+    const file = event.target.files[0];
+    if (file) {
+      const newImage = newproject;
+      newImage.image = URL.createObjectURL(file);
+      setNewProject(newImage);
+    }
+  }
+
+  const [loggedIn, setLoggedIn] = useState(() => {
+    return JSON.parse(localStorage.getItem("isLoggedIn")) || false;
+  });
 
   useEffect(() => {
     localStorage.setItem("isLoggedIn", JSON.stringify(loggedIn));
@@ -54,15 +63,9 @@ export default function Admin() {
         className="flex flex-col w-full text-neutral-300 m-10 md:m-0 md:my-10 shadow-lg p-5 rounded-lg dark:bg-neutral-900 gap-3"
         key={i}
       >
-        <input
-          type="text"
-          className="bg-neutral-800 py-20 text-center rounded-t-lg"
-          value={projects[i].image}
-          onChange={(e) => {
-            const newImage = [...projects];
-            newImage[i].image = e.target.value;
-            setProjects(newImage);
-          }}
+        <img
+          className="bg-neutral-800 text-center rounded-t-lg h-64 md:h-[600px] "
+          src={projects[i].image}
         />
         <input
           type="text"
@@ -158,15 +161,11 @@ export default function Admin() {
             <div className="flex flex-col items-center gap-2">
               <div className="flex flex-col m-10 md:m-0 md:w-full shadow-lg p-5 rounded-lg bg-base-300 text-base-content gap-3 md:gap-10 md:text-2xl">
                 <input
-                  type="text"
+                  type="file"
                   className="bg-base-200 py-20 md:py-60 text-center rounded-t-lg"
-                  placeholder="Image tag: "
-                  onChange={(e) => {
-                    const newImage = newproject;
-                    newImage.image = e.target.value;
-                    setNewProject(newImage);
-                  }}
+                  onChange={handleImageUpload}
                 />
+
                 <input
                   type="text"
                   className="bg-base-300 text-3xl"

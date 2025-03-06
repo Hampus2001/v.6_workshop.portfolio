@@ -3,12 +3,8 @@ import { useContext, useEffect, useState } from "react";
 
 export default function Card() {
   const { projects, setProjects } = useContext(MyPortfolioContext);
-  const [showCard, setShowCard] = useState(false);
 
-  useEffect(() => {
-    setShowCard(true);
-  }, [projects.length > 0]);
-
+  console.log("image", projects);
   const displayProjects = [];
 
   for (let i = 0; i < projects.length; i++) {
@@ -18,7 +14,7 @@ export default function Card() {
           className="flex flex-col text-neutral-300 w-full m-10 lg:m-0 lg:my-10 shadow-lg p-5 rounded-lg dark:bg-neutral-900"
           key={i}
         >
-          <img src={projects[i].image} className="h-64 pb-5" />
+          <img src={projects[i].image} className="h-64 md:h-[600px] pb-5" />
           <h2 className="text-2xl font-bold tracking-widest">
             {projects[i].title}
           </h2>

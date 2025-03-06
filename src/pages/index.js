@@ -60,7 +60,7 @@ export default function Home() {
       <br />
       <div
         id="projects"
-        className="md:flex md:justify-between md:px-96 md:my-20 md:gap-20"
+        className="md:flex-wrap md:flex md:justify-center md:px-96 md:my-20 md: gap-10"
       >
         <Card />
       </div>
