@@ -18,7 +18,7 @@ export default function Footer() {
         </a>
       </div>
       <div>
-        <p className="text-sm lg:text-xl">Made by Hampus Söderlund</p>
+        <p className="text-xs lg:text-xl">Made by Hampus Söderlund</p>
       </div>
     </div>
   );

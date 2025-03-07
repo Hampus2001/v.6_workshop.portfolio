@@ -6,32 +6,12 @@ import { HandleImagesContext } from "../contexts/imagesContext";
 export default function Admin() {
   const { projects, setProjects } = useContext(MyPortfolioContext);
   const { images, setImages } = useContext(HandleImagesContext);
-
-  function handleImageUpload(event) {
-    const file = event.target.files[0];
-    if (file) {
-      const newImage = newproject;
-      newImage.image = URL.createObjectURL(file);
-      setNewProject(newImage);
-    }
-  }
-
+  const [newImage, setNewImage] = useState();
   const [loggedIn, setLoggedIn] = useState(() => {
     return JSON.parse(localStorage.getItem("isLoggedIn")) || false;
   });
-
-  useEffect(() => {
-    localStorage.setItem("isLoggedIn", JSON.stringify(loggedIn));
-  }, [loggedIn]);
-
-  const [credentials, setCredentials] = useState({
-    username: "Hampus",
-    password: "Hampus123",
-  });
-
   const [inputUsername, setInputUsername] = useState("");
   const [inputPassword, setInputPassword] = useState("");
-
   const [newproject, setNewProject] = useState([
     {
       image: "",
@@ -43,6 +23,15 @@ export default function Admin() {
       id: "",
     },
   ]);
+  const [credentials, setCredentials] = useState({
+    username: "Hampus",
+    password: "Hampus123",
+  });
+
+  useEffect(() => {
+    //update localstorage to set logged in if you have logged in once.
+    localStorage.setItem("isLoggedIn", JSON.stringify(loggedIn));
+  }, [loggedIn]);
 
   function handleLogin() {
     if (
@@ -55,6 +44,19 @@ export default function Admin() {
     }
   }
 
+  function handleImageUpload(event) {
+    const file = event.target.files[0];
+    if (file) {
+      setNewImage(URL.createObjectURL(file));
+    }
+  }
+
+  function submitImageUpload() {
+    setImages([...images, newImage]);
+    setNewImage("");
+  }
+
+  //All added projects displayed for edit in adminspage
   const displayProjects = [];
 
   for (let i = 0; i < projects.length; i++) {
@@ -65,7 +67,7 @@ export default function Admin() {
       >
         <img
           className="bg-neutral-800 text-center rounded-t-lg h-64 md:h-[600px] "
-          src={projects[i].image}
+          src={images[i]}
         />
         <input
           type="text"
@@ -131,6 +133,7 @@ export default function Admin() {
     );
   }
 
+  //Adminpage return:
   return (
     <div className="flex flex-col">
       <NavBar />
@@ -221,9 +224,9 @@ export default function Admin() {
                 <button
                   className="bg-base-content text-base-300 rounded-lg py-5"
                   onClick={() => {
-                    const addProject = [...projects];
-                    addProject.push(newproject);
+                    const addProject = [...projects, newproject];
                     setProjects(addProject);
+                    submitImageUpload();
                   }}
                 >
                   Add Project
