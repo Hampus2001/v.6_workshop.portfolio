@@ -16,7 +16,7 @@ export default function Home() {
     <div className="flex flex-col min-h-screen gap-20 md:gap-40 px-10 sm:px-14 md:px-28 2xl:px-80 xl:py-20">
       <div
         id="hero"
-        className="flex my-10 justify-between items-center 2xl:gap-10  md:my-20"
+        className="flex my-10 pt-10 justify-between items-center 2xl:gap-10  md:my-20"
       >
         <div className="flex flex-col text-sm md:text-3xl 2xl:text-4xl xl:gap-5">
           <p>My Name is</p>
@@ -40,14 +40,14 @@ export default function Home() {
           id="myTechStacks"
           className="flex flex-col gap-5 justify-between items-center md:gap-36"
         >
-          <div className="flex w-full justify-between text-6xl sm:text-7xl lg:text-9xl">
+          <div className="flex w-full justify-between text-5xl sm:text-7xl lg:text-9xl">
             <FaHtml5 className="text-red-500" />
             <FaCss3Alt className="text-blue-500" />
             <FaReact className="text-sky-500" />
             <RiTailwindCssFill className="text-sky-400" />
             <IoLogoJavascript className="text-yellow-400" />
           </div>
-          <div className="flex w-full justify-between text-6xl sm:text-7xl md:text-9xl">
+          <div className="flex w-full justify-between text-5xl sm:text-7xl md:text-9xl">
             <FaGitAlt className="text-orange-600" />
             <RiNextjsFill />
             <FaGithub />
