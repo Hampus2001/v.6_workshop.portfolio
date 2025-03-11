@@ -6,8 +6,12 @@ export default function NavBar() {
     <div className="font-bold text-sm bg-base-300 flex h-4 justify-between items-center p-5 sm:p-10 lg:text-xl">
       <div></div>
       <div className="flex gap-5 items-center">
-        <p>About</p>
-        <p>Contact</p>
+        <Link href="/about">
+          <p>About</p>
+        </Link>
+        <Link href="/contact">
+          <p>Contact</p>
+        </Link>
         <Link href="/">
           <p>Home</p>
         </Link>

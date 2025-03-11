@@ -49,45 +49,43 @@ export default function Admin() {
 
   for (let i = 0; i < projects.length; i++) {
     displayProjects.push(
-      <div
-        className="flex flex-col w-full text-neutral-300 m-10 md:m-0 md:my-10 shadow-lg p-5 rounded-lg dark:bg-neutral-900 gap-3"
-        key={i}
-      >
-        <img
-          className="bg-neutral-800 text-center rounded-t-lg h-64 md:h-[600px] "
-          src={projects[i].image}
-        />
-        <input
-          type="text"
-          className="bg-neutral-900 text-3xl"
-          value={projects[i].title}
-          onChange={(e) => {
-            const newTitle = [...projects];
-            newTitle[i].title = e.target.value;
-            setProjects(newTitle);
-          }}
-        />
-        <input
-          type="text"
-          className="bg-neutral-900"
-          value={projects[i].desciption}
-          onChange={(e) => {
-            const newDescription = [...projects];
-            newDescription[i].description = e.target.value;
-            setProjects(newDescription);
-          }}
-        />
-        <input
-          type="text"
-          className="bg-neutral-900"
-          value={projects[i].techSkills}
-          onChange={(e) => {
-            const newTech = [...projects];
-            newTech[i].techStack = e.target.value;
-            setProjects(newTech);
-          }}
-        />
-        <div className="flex justify-between">
+      <div className="shadow-lg shadow-base rounded-lg">
+        <img className="h-auto w-auto rounded-t-lg" src={projects[i].image} />
+        <div
+          className="flex flex-col text-neutral-300 w-full gap-4 sm:gap-8 lg:m-0 lg:my-10 shadow-lg p-5 rounded-b-lg dark:bg-neutral-900"
+          key={i}
+        >
+          <input
+            type="text"
+            className="bg-neutral-900 text-lg sm:text-3xl"
+            value={projects[i].title}
+            onChange={(e) => {
+              const newTitle = [...projects];
+              newTitle[i].title = e.target.value;
+              setProjects(newTitle);
+            }}
+          />
+          <textarea
+            type="text"
+            className="bg-neutral-900 text-md sm:text-lg"
+            value={projects[i].description}
+            onChange={(e) => {
+              const newDescription = [...projects];
+              newDescription[i].description = e.target.value;
+              setProjects(newDescription);
+            }}
+          />
+          <input
+            type="text"
+            className="bg-neutral-900"
+            value={projects[i].techSkills}
+            onChange={(e) => {
+              const newTech = [...projects];
+              newTech[i].techStack = e.target.value;
+              setProjects(newTech);
+            }}
+          />
+
           <input
             type="text"
             className="bg-neutral-900"
@@ -108,23 +106,27 @@ export default function Admin() {
               setProjects(newLink);
             }}
           />
+
+          <button
+            className="bg-primary rounded-lg"
+            onClick={() => {
+              const filteredProjects = projects.filter(
+                (_, index) => index !== i
+              );
+              setProjects(filteredProjects);
+            }}
+          >
+            Delete
+          </button>
         </div>
-        <button
-          onClick={() => {
-            const filteredProjects = projects.filter((_, index) => index !== i);
-            setProjects(filteredProjects);
-          }}
-        >
-          Delete
-        </button>
       </div>
     );
   }
 
   //Adminpage return:
   return (
-    <div className="flex flex-col min-h-screen">
-      <div className="flex flex-col items-center">
+    <div className="flex flex-col min-h-screen p-10">
+      <div className="flex flex-col">
         {!loggedIn && (
           <form className="flex flex-col gap-2 p-10">
             <input
@@ -147,18 +149,17 @@ export default function Admin() {
           </form>
         )}
         {loggedIn && (
-          <div className="w-3/4 md:w-2/4 py-10">
-            <div className="flex flex-col items-center gap-2">
-              <div className="flex flex-col m-10 md:m-0 md:w-full shadow-lg p-5 rounded-lg bg-base-300 text-base-content gap-3 md:gap-10 md:text-2xl">
-                <input
-                  type="file"
-                  className="bg-base-200 py-20 md:py-60 text-center rounded-t-lg"
-                  onChange={(e) => handleImageUpload(e)}
-                />
-
+          <div className="flex flex-col items-center gap-10">
+            <div className="flex flex-col w-full bg-base-300 rounded-lg shadow-lg shadow-base ">
+              <input
+                type="file"
+                className="bg-base-200 py-20 md:py-60 text-center rounded-t-lg"
+                onChange={(e) => handleImageUpload(e)}
+              />
+              <div className="flex flex-col w-full gap-5 p-5">
                 <input
                   type="text"
-                  className="bg-base-300 text-3xl"
+                  className="bg-base-300 text-sm sm:text-lg"
                   placeholder="Title: "
                   onChange={(e) => {
                     const newTitle = newproject;
@@ -168,7 +169,7 @@ export default function Admin() {
                 />
                 <textarea
                   type="text"
-                  className="bg-base-300"
+                  className="bg-base-300 text-sm sm:text-lg"
                   placeholder="Description: "
                   onChange={(e) => {
                     const newDescription = newproject;
@@ -178,7 +179,7 @@ export default function Admin() {
                 />
                 <input
                   type="text"
-                  className="bg-base-300"
+                  className="bg-base-300 text-sm sm:text-lg"
                   placeholder="Tech stack: "
                   onChange={(e) => {
                     const newTech = newproject;
@@ -186,30 +187,30 @@ export default function Admin() {
                     setNewProject(newTech);
                   }}
                 />
-                <div className="flex justify-between">
-                  <input
-                    type="text"
-                    className="bg-base-300"
-                    placeholder="year: "
-                    onChange={(e) => {
-                      const newYear = newproject;
-                      newYear.year = e.target.value;
-                      setNewProject(newYear);
-                    }}
-                  />
-                  <input
-                    type="text"
-                    className="bg-base-300 text-end"
-                    placeholder="Link: "
-                    onChange={(e) => {
-                      const newLink = newproject;
-                      newLink.link = e.target.value;
-                      setNewProject(newLink);
-                    }}
-                  />
-                </div>
+
+                <input
+                  type="text"
+                  className="bg-base-300 text-sm sm:text-lg"
+                  placeholder="year: "
+                  onChange={(e) => {
+                    const newYear = newproject;
+                    newYear.year = e.target.value;
+                    setNewProject(newYear);
+                  }}
+                />
+                <input
+                  type="text"
+                  className="bg-base-300 text-sm sm:text-lg"
+                  placeholder="Link: "
+                  onChange={(e) => {
+                    const newLink = newproject;
+                    newLink.link = e.target.value;
+                    setNewProject(newLink);
+                  }}
+                />
+
                 <button
-                  className="bg-base-content text-base-300 rounded-lg py-5"
+                  className="bg-primary text-base-300 rounded-lg py-5"
                   onClick={() => {
                     const addProject = [...projects, newproject];
                     setProjects(addProject);
