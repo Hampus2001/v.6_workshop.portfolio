@@ -10,7 +10,7 @@ export default function PortfolioContext({ children }) {
       description:
         "Digital pokemon collection. Showcase your cards without bringing them!",
       year: "2025",
-      link: "https://pokemon-one-bay.vercel.app/pokemonCards/base2",
+      link: "https://pokemon-one-bay.vercel.app/",
       techSkills: "Next.js, Tailwind, Git",
       id: "",
     },
