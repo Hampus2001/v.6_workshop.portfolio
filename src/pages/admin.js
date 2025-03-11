@@ -128,9 +128,9 @@ export default function Admin() {
   //Adminpage return:
   return (
     <div className="flex flex-col min-h-screen">
-      <div className="flex flex-col items-center p-10">
+      <div className="flex flex-col items-center">
         {!loggedIn && (
-          <form className="flex flex-col gap-2">
+          <form className="flex flex-col gap-2 p-10">
             <input
               type="text"
               onChange={(e) => setInputUsername(e.target.value)}
@@ -151,7 +151,7 @@ export default function Admin() {
           </form>
         )}
         {loggedIn && (
-          <div className="md:w-2/4">
+          <div className="w-3/4 md:w-2/4 py-10">
             <div className="flex flex-col items-center gap-2">
               <div className="flex flex-col m-10 md:m-0 md:w-full shadow-lg p-5 rounded-lg bg-base-300 text-base-content gap-3 md:gap-10 md:text-2xl">
                 <input
@@ -225,7 +225,6 @@ export default function Admin() {
               </div>
             </div>
             <div>{displayProjects}</div>
-            <button onClick={() => setLoggedIn(false)}>Log out</button>
           </div>
         )}
       </div>

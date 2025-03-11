@@ -20,12 +20,12 @@ export default function Home() {
         id="hero"
         className="flex my-10 justify-between items-center 2xl:gap-10  md:my-20"
       >
-        <div className="flex flex-col text-xl md:text-3xl 2xl:text-4xl xl:gap-5">
+        <div className="flex flex-col text-sm md:text-3xl 2xl:text-4xl xl:gap-5">
           <p>My Name is</p>
           <h1 className="text-2xl text-transparent bg-clip-text bg-gradient-to-r from-primary to-secondary font-bold mb-5 sm:text-4xl md:text-5xl 2xl:text-7xl">
             Hampus Söderlund
           </h1>
-          <p>I build things for web</p>
+          <p className="text-sm sm:text-base">I build things for web</p>
         </div>
         <img
           className="w-28 h-28 rounded-full md:w-52 md:h-52 lg:w-64 lg:h-64 2xl:w-80 2xl:h-80 object-cover aspect-square border-4 border-base-content shadow-xl shadow-gray-900"
@@ -34,7 +34,7 @@ export default function Home() {
         />
       </div>
       <div className="flex flex-col gap-10 md:gap-28">
-        <div className="flex flex-col gap-5 items-center md:text-2xl md:gap-10">
+        <div className="flex flex-col gap-5 items-center text-lg md:text-2xl md:gap-10">
           <h3>MY TECH STACK:</h3>
           <p>Technologies I've been working with recently</p>
         </div>
