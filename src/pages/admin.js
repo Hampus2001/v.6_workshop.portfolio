@@ -127,7 +127,7 @@ export default function Admin() {
 
   //Adminpage return:
   return (
-    <div className="flex flex-col">
+    <div className="flex flex-col min-h-screen">
       <div className="flex flex-col items-center p-10">
         {!loggedIn && (
           <form className="flex flex-col gap-2">

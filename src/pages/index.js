@@ -15,20 +15,20 @@ import Card from "@/Components/Card";
 
 export default function Home() {
   return (
-    <div className="flex flex-col gap-20 md:gap-40 px-10 sm:px-14 md:px-28 2xl:px-80 xl:py-20">
+    <div className="flex flex-col min-h-screen gap-20 md:gap-40 px-10 sm:px-14 md:px-28 2xl:px-80 xl:py-20">
       <div
         id="hero"
         className="flex my-10 justify-between items-center 2xl:gap-10  md:my-20"
       >
-        <div className="flex flex-col text-2xl md:text-3xl 2xl:text-4xl xl:gap-5">
+        <div className="flex flex-col text-xl md:text-3xl 2xl:text-4xl xl:gap-5">
           <p>My Name is</p>
-          <h1 className="text-3xl text-transparent bg-clip-text bg-gradient-to-r from-primary to-secondary font-bold mb-5 sm:text-4xl md:text-5xl 2xl:text-7xl">
+          <h1 className="text-2xl text-transparent bg-clip-text bg-gradient-to-r from-primary to-secondary font-bold mb-5 sm:text-4xl md:text-5xl 2xl:text-7xl">
             Hampus Söderlund
           </h1>
           <p>I build things for web</p>
         </div>
         <img
-          className="w-36 h-36 rounded-full md:w-52 md:h-52 lg:w-64 lg:h-64 2xl:w-80 2xl:h-80 object-cover aspect-square border-4 border-base-content shadow-xl shadow-gray-900"
+          className="w-28 h-28 rounded-full md:w-52 md:h-52 lg:w-64 lg:h-64 2xl:w-80 2xl:h-80 object-cover aspect-square border-4 border-base-content shadow-xl shadow-gray-900"
           src="./images/progilePic.jpg"
           alt="profile picture"
         />
@@ -42,14 +42,14 @@ export default function Home() {
           id="myTechStacks"
           className="flex flex-col gap-5 justify-between items-center md:gap-36"
         >
-          <div className="flex w-full justify-between text-7xl lg:text-9xl">
+          <div className="flex w-full justify-between text-6xl sm:text-7xl lg:text-9xl">
             <FaHtml5 className="text-red-500" />
             <FaCss3Alt className="text-blue-500" />
             <FaReact className="text-sky-500" />
             <RiTailwindCssFill className="text-sky-400" />
             <IoLogoJavascript className="text-yellow-400" />
           </div>
-          <div className="flex w-full justify-between text-7xl md:text-9xl">
+          <div className="flex w-full justify-between text-6xl sm:text-7xl md:text-9xl">
             <FaGitAlt className="text-orange-600" />
             <RiNextjsFill />
             <FaGithub />
