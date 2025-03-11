@@ -1,15 +1,12 @@
 import { MyPortfolioContext } from "@/contexts/PortfolioContext";
 import { useContext, useEffect, useState } from "react";
-import NavBar from "@/Components/Navbar";
 import { HandleImagesContext } from "../contexts/imagesContext";
 
 export default function Admin() {
   const { projects, setProjects } = useContext(MyPortfolioContext);
   const { images, setImages } = useContext(HandleImagesContext);
   const [newImage, setNewImage] = useState();
-  const [loggedIn, setLoggedIn] = useState(() => {
-    return JSON.parse(localStorage.getItem("isLoggedIn")) || false;
-  });
+  const [loggedIn, setLoggedIn] = useState(false);
   const [inputUsername, setInputUsername] = useState("");
   const [inputPassword, setInputPassword] = useState("");
   const [newproject, setNewProject] = useState([
@@ -27,11 +24,6 @@ export default function Admin() {
     username: "Hampus",
     password: "Hampus123",
   });
-
-  useEffect(() => {
-    //update localstorage to set logged in if you have logged in once.
-    localStorage.setItem("isLoggedIn", JSON.stringify(loggedIn));
-  }, [loggedIn]);
 
   function handleLogin() {
     if (
