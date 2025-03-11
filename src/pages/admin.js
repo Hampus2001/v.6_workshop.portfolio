@@ -1,11 +1,8 @@
 import { MyPortfolioContext } from "@/contexts/PortfolioContext";
 import { useContext, useEffect, useState } from "react";
-import { HandleImagesContext } from "../contexts/imagesContext";
 
 export default function Admin() {
   const { projects, setProjects } = useContext(MyPortfolioContext);
-  const { images, setImages } = useContext(HandleImagesContext);
-  const [newImage, setNewImage] = useState();
   const [loggedIn, setLoggedIn] = useState(false);
   const [inputUsername, setInputUsername] = useState("");
   const [inputPassword, setInputPassword] = useState("");
@@ -13,10 +10,10 @@ export default function Admin() {
     {
       image: "",
       title: "",
-      desciption: "",
+      description: "",
       year: "",
       link: "",
-      techStack: "",
+      techSkills: "",
       id: "",
     },
   ]);
@@ -39,15 +36,14 @@ export default function Admin() {
   function handleImageUpload(event) {
     const file = event.target.files[0];
     if (file) {
-      setNewImage(URL.createObjectURL(file));
+      const imageUrl = URL.createObjectURL(file);
+      const newImage = [...newproject];
+      newImage.image = imageUrl;
+      setNewProject(newImage);
     }
   }
 
-  function submitImageUpload() {
-    setImages([...images, newImage]);
-    setNewImage("");
-  }
-
+  console.log(newproject);
   //All added projects displayed for edit in adminspage
   const displayProjects = [];
 
@@ -59,7 +55,7 @@ export default function Admin() {
       >
         <img
           className="bg-neutral-800 text-center rounded-t-lg h-64 md:h-[600px] "
-          src={images[i]}
+          src={projects[i].image}
         />
         <input
           type="text"
@@ -77,14 +73,14 @@ export default function Admin() {
           value={projects[i].desciption}
           onChange={(e) => {
             const newDescription = [...projects];
-            newDescription[i].desciption = e.target.value;
+            newDescription[i].description = e.target.value;
             setProjects(newDescription);
           }}
         />
         <input
           type="text"
           className="bg-neutral-900"
-          value={projects[i].techStack}
+          value={projects[i].techSkills}
           onChange={(e) => {
             const newTech = [...projects];
             newTech[i].techStack = e.target.value;
@@ -157,7 +153,7 @@ export default function Admin() {
                 <input
                   type="file"
                   className="bg-base-200 py-20 md:py-60 text-center rounded-t-lg"
-                  onChange={handleImageUpload}
+                  onChange={(e) => handleImageUpload(e)}
                 />
 
                 <input
@@ -176,7 +172,7 @@ export default function Admin() {
                   placeholder="Description: "
                   onChange={(e) => {
                     const newDescription = newproject;
-                    newDescription.desciption = e.target.value;
+                    newDescription.description = e.target.value;
                     setNewProject(newDescription);
                   }}
                 />
@@ -186,7 +182,7 @@ export default function Admin() {
                   placeholder="Tech stack: "
                   onChange={(e) => {
                     const newTech = newproject;
-                    newTech.techStack = e.target.value;
+                    newTech.techSkills = e.target.value;
                     setNewProject(newTech);
                   }}
                 />
@@ -217,7 +213,6 @@ export default function Admin() {
                   onClick={() => {
                     const addProject = [...projects, newproject];
                     setProjects(addProject);
-                    submitImageUpload();
                   }}
                 >
                   Add Project

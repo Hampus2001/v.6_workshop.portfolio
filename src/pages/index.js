@@ -1,5 +1,3 @@
-import NavBar from "@/Components/Navbar";
-import Footer from "@/Components/Footer";
 import {
   FaHtml5,
   FaCss3Alt,
