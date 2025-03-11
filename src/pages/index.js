@@ -29,7 +29,7 @@ export default function Home() {
         </div>
         <img
           className="w-36 h-36 rounded-full md:w-52 md:h-52 lg:w-64 lg:h-64 2xl:w-80 2xl:h-80 object-cover aspect-square border-4 border-base-content shadow-xl shadow-gray-900"
-          src="./images/profile.jpg"
+          src="./images/progilePic.jpg"
           alt="profile picture"
         />
       </div>
@@ -58,7 +58,7 @@ export default function Home() {
           </div>
         </div>
       </div>
-      <br />
+
       <div
         id="projects"
         className="flex-wrap flex justify-center  md:my-20 md: gap-10"
