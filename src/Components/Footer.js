@@ -17,9 +17,6 @@ export default function Footer() {
           <FaGithub />
         </a>
       </div>
-      <div>
-        <p className="text-xs lg:text-xl">Made by Hampus Söderlund</p>
-      </div>
     </div>
   );
 }
