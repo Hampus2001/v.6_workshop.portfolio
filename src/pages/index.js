@@ -61,6 +61,7 @@ export default function Home() {
         id="projects"
         className="flex-wrap flex justify-center  md:my-20 md: gap-10"
       >
+        <h2 className="text-lg md:text-2xl">PROJECTS</h2>
         <Card />
       </div>
     </div>
