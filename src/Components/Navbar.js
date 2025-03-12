@@ -11,7 +11,7 @@ export default function NavBar() {
     "text-xl sm:text-3xl hover:cursor-pointer hover:text-primary";
 
   return (
-    <div className="font-bold text-sm bg-base-300 flex h-4 justify-between items-center p-5 sm:p-10 lg:text-xl">
+    <div className="font-bold text-sm bg-base-300 flex h-4 justify-between items-center p-10  lg:text-xl">
       <div>
         <Link href="/">
           <FaHome className={iconStyling} />
