@@ -1,10 +1,22 @@
 import Link from "next/link";
-import { FaGithub } from "react-icons/fa";
+import { FaGithub, FaHome } from "react-icons/fa";
+import { LuSun, LuMoon } from "react-icons/lu";
+import { HandleThemeContext } from "@/contexts/ThemeContext";
+import { useContext } from "react";
 
 export default function NavBar() {
+  const { theme, setTheme } = useContext(HandleThemeContext);
+
+  const iconStyling =
+    "text-xl sm:text-3xl hover:cursor-pointer hover:text-primary";
+
   return (
     <div className="font-bold text-sm bg-base-300 flex h-4 justify-between items-center p-5 sm:p-10 lg:text-xl">
-      <div></div>
+      <div>
+        <Link href="/">
+          <FaHome className={iconStyling} />
+        </Link>
+      </div>
       <div className="flex gap-5 items-center">
         <Link href="/about">
           <p>About</p>
@@ -12,10 +24,13 @@ export default function NavBar() {
         <Link href="/contact">
           <p>Contact</p>
         </Link>
-        <Link href="/">
-          <p>Home</p>
-        </Link>
-        <a href="https://github.com/Hampus2001" className="text-xl sm:text-3xl">
+        {theme == "dark" && (
+          <LuSun className={iconStyling} onClick={() => setTheme("light")} />
+        )}
+        {theme == "light" && (
+          <LuMoon className={iconStyling} onClick={() => setTheme("dark")} />
+        )}
+        <a href="https://github.com/Hampus2001" className={iconStyling}>
           <FaGithub />
         </a>
       </div>

@@ -52,12 +52,12 @@ export default function Admin() {
       <div className="w-full lg:w-2/3 shadow-lg shadow-base rounded-lg">
         <img className="h-auto w-auto rounded-t-lg" src={projects[i].image} />
         <div
-          className="flex flex-col text-neutral-300 w-full gap-4 sm:gap-8 shadow-lg p-5 rounded-b-lg dark:bg-neutral-900"
+          className="flex flex-col text-base-content w-full gap-4 sm:gap-8 shadow-lg p-5 rounded-b-lg bg-base-300"
           key={i}
         >
           <input
             type="text"
-            className="bg-neutral-900 text-lg sm:text-3xl lg:text-5xl"
+            className="bg-base-300 text-lg sm:text-3xl lg:text-5xl"
             value={projects[i].title}
             onChange={(e) => {
               const newTitle = [...projects];
@@ -67,7 +67,7 @@ export default function Admin() {
           />
           <textarea
             type="text"
-            className="bg-neutral-900 text-md sm:text-lg lg:text-2xl"
+            className="bg-base-300 text-md sm:text-lg lg:text-2xl"
             value={projects[i].description}
             onChange={(e) => {
               const newDescription = [...projects];
@@ -77,7 +77,7 @@ export default function Admin() {
           />
           <input
             type="text"
-            className="bg-neutral-900 lg:text-2xl"
+            className="bg-base-300 lg:text-2xl"
             value={projects[i].techSkills}
             onChange={(e) => {
               const newTech = [...projects];
@@ -88,7 +88,7 @@ export default function Admin() {
 
           <input
             type="text"
-            className="bg-neutral-900 lg:text-2xl"
+            className="bg-base-300 lg:text-2xl"
             value={projects[i].year}
             onChange={(e) => {
               const newYear = [...projects];
@@ -98,7 +98,7 @@ export default function Admin() {
           />
           <input
             type="text"
-            className="bg-neutral-900 text-end lg:text-2xl"
+            className="bg-base-300 lg:text-2xl"
             value={projects[i].link}
             onChange={(e) => {
               const newLink = [...projects];
@@ -126,7 +126,7 @@ export default function Admin() {
   //Adminpage return:
   return (
     <div className="flex flex-col min-h-screen p-10">
-      <div className="flex flex-col">
+      <div className="flex flex-col items-center">
         {!loggedIn && (
           <form className="flex flex-col lg:w-2/5 gap-2 lg:gap-5 p-10 items-center justify-center">
             <input
@@ -151,8 +151,8 @@ export default function Admin() {
           </form>
         )}
         {loggedIn && (
-          <div className="flex flex-col items-center gap-10">
-            <div className="flex flex-col w-full lg:w-2/3 bg-base-300  rounded-lg shadow-lg shadow-base ">
+          <div className="flex flex-col items-center gap-10 ">
+            <div className="flex flex-col w-full lg:w-2/3 bg-base-300 rounded-lg shadow-lg shadow-base ">
               <input
                 type="file"
                 className="bg-base-200 py-20 md:py-60 px-5 text-lg lg:text-4xl rounded-t-lg"

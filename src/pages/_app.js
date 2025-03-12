@@ -5,16 +5,29 @@ import { Merriweather } from "next/font/google";
 import NavBar from "@/Components/Navbar";
 import Footer from "@/Components/Footer";
 import { useContext } from "react";
+
 const merriweather = Merriweather({ weight: "400", subsets: ["latin"] });
 
-export default function App({ Component, pageProps }) {
+function MainLayout({ Component, pageProps }) {
+  const { theme } = useContext(HandleThemeContext);
+
+  console.log("theme", theme);
+
   return (
-    <main className={merriweather.className} data-theme="dark">
+    <main className={merriweather.className} data-theme={theme}>
       <PortfolioContext>
         <NavBar />
         <Component {...pageProps} />
         <Footer />
       </PortfolioContext>
     </main>
+  );
+}
+
+export default function App({ Component, pageProps }) {
+  return (
+    <ThemeContext>
+      <MainLayout Component={Component} pageProps={pageProps} />
+    </ThemeContext>
   );
 }
