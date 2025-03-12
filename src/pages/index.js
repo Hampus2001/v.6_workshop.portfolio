@@ -59,7 +59,7 @@ export default function Home() {
 
       <div
         id="projects"
-        className="flex-wrap flex justify-center  md:my-20 md: gap-10"
+        className="flex-wrap flex justify-center  gap-10 md:gap-32"
       >
         <h2 className="text-lg md:text-2xl">PROJECTS</h2>
         <Card />

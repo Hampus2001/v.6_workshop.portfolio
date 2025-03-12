@@ -49,15 +49,15 @@ export default function Admin() {
 
   for (let i = 0; i < projects.length; i++) {
     displayProjects.push(
-      <div className="shadow-lg shadow-base rounded-lg">
+      <div className="w-full lg:w-2/3 shadow-lg shadow-base rounded-lg">
         <img className="h-auto w-auto rounded-t-lg" src={projects[i].image} />
         <div
-          className="flex flex-col text-neutral-300 w-full gap-4 sm:gap-8 lg:m-0 lg:my-10 shadow-lg p-5 rounded-b-lg dark:bg-neutral-900"
+          className="flex flex-col text-neutral-300 w-full gap-4 sm:gap-8 shadow-lg p-5 rounded-b-lg dark:bg-neutral-900"
           key={i}
         >
           <input
             type="text"
-            className="bg-neutral-900 text-lg sm:text-3xl"
+            className="bg-neutral-900 text-lg sm:text-3xl lg:text-5xl"
             value={projects[i].title}
             onChange={(e) => {
               const newTitle = [...projects];
@@ -67,7 +67,7 @@ export default function Admin() {
           />
           <textarea
             type="text"
-            className="bg-neutral-900 text-md sm:text-lg"
+            className="bg-neutral-900 text-md sm:text-lg lg:text-2xl"
             value={projects[i].description}
             onChange={(e) => {
               const newDescription = [...projects];
@@ -77,7 +77,7 @@ export default function Admin() {
           />
           <input
             type="text"
-            className="bg-neutral-900"
+            className="bg-neutral-900 lg:text-2xl"
             value={projects[i].techSkills}
             onChange={(e) => {
               const newTech = [...projects];
@@ -88,7 +88,7 @@ export default function Admin() {
 
           <input
             type="text"
-            className="bg-neutral-900"
+            className="bg-neutral-900 lg:text-2xl"
             value={projects[i].year}
             onChange={(e) => {
               const newYear = [...projects];
@@ -98,7 +98,7 @@ export default function Admin() {
           />
           <input
             type="text"
-            className="bg-neutral-900 text-end"
+            className="bg-neutral-900 text-end lg:text-2xl"
             value={projects[i].link}
             onChange={(e) => {
               const newLink = [...projects];
@@ -108,7 +108,7 @@ export default function Admin() {
           />
 
           <button
-            className="bg-primary rounded-lg"
+            className="bg-primary text-base-300 font-bold rounded-lg py-5 lg:text-2xl"
             onClick={() => {
               const filteredProjects = projects.filter(
                 (_, index) => index !== i
@@ -128,38 +128,40 @@ export default function Admin() {
     <div className="flex flex-col min-h-screen p-10">
       <div className="flex flex-col">
         {!loggedIn && (
-          <form className="flex flex-col gap-2 p-10">
+          <form className="flex flex-col lg:w-2/5 gap-2 lg:gap-5 p-10 items-center justify-center">
             <input
               type="text"
               onChange={(e) => setInputUsername(e.target.value)}
-              className="px-4 py-2"
+              className="w-full px-4 py-2 rounded-lg text-sm lg:text-4xl"
               placeholder="Username"
             />
             <input
               type="password"
               onChange={(e) => setInputPassword(e.target.value)}
-              className=" px-4 py-2"
+              className="w-full px-4 py-2 rounded-lg text-sm lg:text-4xl"
               placeholder="Password"
             />
-            <div className="flex gap-5">
-              <button className="bg-white " onClick={() => handleLogin()}>
-                Log in
-              </button>
-            </div>
+
+            <button
+              className="bg-primary py-1 lg:py-5 text-lg lg:text-2xl text-white rounded-lg w-full"
+              onClick={() => handleLogin()}
+            >
+              Log in
+            </button>
           </form>
         )}
         {loggedIn && (
           <div className="flex flex-col items-center gap-10">
-            <div className="flex flex-col w-full bg-base-300 rounded-lg shadow-lg shadow-base ">
+            <div className="flex flex-col w-full lg:w-2/3 bg-base-300  rounded-lg shadow-lg shadow-base ">
               <input
                 type="file"
-                className="bg-base-200 py-20 md:py-60 text-center rounded-t-lg"
+                className="bg-base-200 py-20 md:py-60 px-5 text-lg lg:text-4xl rounded-t-lg"
                 onChange={(e) => handleImageUpload(e)}
               />
               <div className="flex flex-col w-full gap-5 p-5">
                 <input
                   type="text"
-                  className="bg-base-300 text-sm sm:text-lg"
+                  className="bg-base-300 text-sm sm:text-lg lg:text-5xl"
                   placeholder="Title: "
                   onChange={(e) => {
                     const newTitle = newproject;
@@ -169,7 +171,7 @@ export default function Admin() {
                 />
                 <textarea
                   type="text"
-                  className="bg-base-300 text-sm sm:text-lg"
+                  className="bg-base-300 text-sm sm:text-lg lg:text-2xl"
                   placeholder="Description: "
                   onChange={(e) => {
                     const newDescription = newproject;
@@ -179,7 +181,7 @@ export default function Admin() {
                 />
                 <input
                   type="text"
-                  className="bg-base-300 text-sm sm:text-lg"
+                  className="bg-base-300 text-sm sm:text-lg lg:text-2xl"
                   placeholder="Tech stack: "
                   onChange={(e) => {
                     const newTech = newproject;
@@ -190,7 +192,7 @@ export default function Admin() {
 
                 <input
                   type="text"
-                  className="bg-base-300 text-sm sm:text-lg"
+                  className="bg-base-300 text-sm sm:text-lg lg:text-2xl"
                   placeholder="year: "
                   onChange={(e) => {
                     const newYear = newproject;
@@ -200,7 +202,7 @@ export default function Admin() {
                 />
                 <input
                   type="text"
-                  className="bg-base-300 text-sm sm:text-lg"
+                  className="bg-base-300 text-sm sm:text-lg lg:text-2xl"
                   placeholder="Link: "
                   onChange={(e) => {
                     const newLink = newproject;
@@ -210,7 +212,7 @@ export default function Admin() {
                 />
 
                 <button
-                  className="bg-primary text-base-300 rounded-lg py-5"
+                  className="bg-primary text-base-300 rounded-lg py-5 font-bold lg:text-2xl"
                   onClick={() => {
                     const addProject = [...projects, newproject];
                     setProjects(addProject);
@@ -220,7 +222,7 @@ export default function Admin() {
                 </button>
               </div>
             </div>
-            <div>{displayProjects}</div>
+            {displayProjects}
           </div>
         )}
       </div>

@@ -10,17 +10,17 @@ export default function Card() {
       <div className="shadow-lg shadow-base rounded-lg">
         <img src={projects[i].image} className="h-auto w-auto rounded-t-lg" />
         <div key={i} className="flex justify-center w-full text-base-content">
-          <div className="flex flex-col text-neutral-300 w-full gap-4 sm:gap-8 lg:m-0 lg:my-10 shadow-lg p-5 rounded-b-lg dark:bg-neutral-900">
-            <h2 className="text-2xl font-bold tracking-widest">
+          <div className="flex flex-col text-neutral-300 w-full gap-4 sm:gap-8 shadow-lg p-5 lg:p-20 rounded-b-lg dark:bg-neutral-900">
+            <h2 className="text-2xl lg:text-5xl font-bold tracking-widest">
               {projects[i].title}
             </h2>
-            <p className="tracking-wide text-sm sm:text-lg">
+            <p className="tracking-wide text-sm sm:text-lg lg:text-3xl">
               {projects[i].description}
             </p>
-            <p className="py-5 text-sm sm:text-lg">
+            <p className="py-5 text-sm sm:text-lg lg:text-3xl">
               Tech stack: {projects[i].techSkills}
             </p>
-            <div className="flex justify-between text-sm sm:text-lg">
+            <div className="flex justify-between text-sm sm:text-lg lg:text-3xl">
               <p>Year: {projects[i].year}</p>
               <a href={projects[i].link}>Link</a>
             </div>
