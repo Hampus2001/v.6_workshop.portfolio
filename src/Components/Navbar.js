@@ -8,7 +8,7 @@ export default function NavBar() {
   const { theme, setTheme } = useContext(HandleThemeContext);
 
   const iconStyling =
-    "text-2xl sm:text-4xl hover:cursor-pointer hover:text-primary";
+    "text-xl sm:text-4xl hover:cursor-pointer hover:text-primary";
 
   return (
     <div className="font-bold text-md bg-base-300 flex h-4 justify-between items-center p-7 sm:p-10  lg:text-xl">
