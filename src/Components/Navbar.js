@@ -8,10 +8,10 @@ export default function NavBar() {
   const { theme, setTheme } = useContext(HandleThemeContext);
 
   const iconStyling =
-    "text-xl sm:text-3xl hover:cursor-pointer hover:text-primary";
+    "text-2xl sm:text-4xl hover:cursor-pointer hover:text-primary";
 
   return (
-    <div className="font-bold text-sm bg-base-300 flex h-4 justify-between items-center p-10  lg:text-xl">
+    <div className="font-bold text-md bg-base-300 flex h-4 justify-between items-center p-7 sm:p-10  lg:text-xl">
       <div>
         <Link href="/">
           <FaHome className={iconStyling} />
@@ -19,10 +19,10 @@ export default function NavBar() {
       </div>
       <div className="flex gap-5 items-center">
         <Link href="/about">
-          <p>About</p>
+          <p className="hover:text-primary">About</p>
         </Link>
         <Link href="/contact">
-          <p>Contact</p>
+          <p className="hover:text-primary">Contact</p>
         </Link>
         {theme == "dark" && (
           <LuSun className={iconStyling} onClick={() => setTheme("light")} />
