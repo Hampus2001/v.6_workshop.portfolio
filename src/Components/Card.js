@@ -10,7 +10,7 @@ export default function Card() {
       <div className="shadow-lg shadow-base rounded-lg shadow-neutral-content">
         <img src={projects[i].image} className="h-auto w-auto rounded-t-lg" />
         <div key={i} className="flex justify-center w-full text-base-content">
-          <div className="flex flex-col text-base-content bg-base-300 w-full gap-4 sm:gap-8 p-5 lg:p-20 rounded-b-lg">
+          <div className="flex flex-col text-base-content bg-base-100 w-full gap-4 sm:gap-8 p-5 lg:p-20 rounded-b-lg">
             <h2 className="text-2xl lg:text-5xl font-bold tracking-widest">
               {projects[i].title}
             </h2>
