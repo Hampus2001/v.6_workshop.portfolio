@@ -24,7 +24,7 @@ export default function Card() {
               <p>Year: {projects[i].year}</p>
               <a
                 href={projects[i].link}
-                className="bg-base-content text-base-300 p-2 lg:p-5 rounded-lg"
+                className="bg-base-content text-base-100 p-2 lg:p-5 rounded-lg"
               >
                 Link
               </a>
