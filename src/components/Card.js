@@ -15,7 +15,11 @@ export default function Card() {
   for (let i = 0; i < projects.length; i++) {
     displayProjects.push(
       <div className={theme == "dark" ? darkThemeCard : lightThemeCard}>
-        <img src={projects[i].image} className="h-auto w-auto rounded-t-lg" />
+        <img
+          src={projects[i].image}
+          alt="Project screenshot"
+          className="h-auto w-auto rounded-t-lg"
+        />
         <div key={i} className="flex justify-center w-full">
           <div className="flex flex-col w-full gap-4 sm:gap-8 p-5 lg:p-20 rounded-b-lg">
             <h2 className="text-2xl lg:text-5xl font-bold tracking-widest">
