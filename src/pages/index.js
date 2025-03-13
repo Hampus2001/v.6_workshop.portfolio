@@ -9,7 +9,7 @@ import {
 import { RiTailwindCssFill, RiNextjsFill } from "react-icons/ri";
 import { IoLogoJavascript } from "react-icons/io5";
 import { BiLogoVisualStudio } from "react-icons/bi";
-import Card from "@/Components/Card";
+import Card from "@/components/Card";
 
 export default function Home() {
   return (

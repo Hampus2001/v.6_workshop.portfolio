@@ -2,8 +2,8 @@ import PortfolioContext from "@/contexts/PortfolioContext";
 import ThemeContext, { HandleThemeContext } from "@/contexts/ThemeContext";
 import "@/styles/globals.css";
 import { Merriweather } from "next/font/google";
-import NavBar from "@/Components/Navbar";
-import Footer from "@/Components/Footer";
+import NavBar from "@/components/Navbar";
+import Footer from "@/components/Footer";
 import { useContext } from "react";
 
 const merriweather = Merriweather({ weight: "400", subsets: ["latin"] });
