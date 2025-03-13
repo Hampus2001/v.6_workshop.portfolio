@@ -14,7 +14,7 @@ export default function NavBar() {
     <div className="font-bold text-md bg-base-300 flex justify-between items-center p-5 sm:p-6  lg:text-xl">
       <div>
         <Link href="/">
-          <FaHome className={iconStyling} />
+          <FaHome className="font-bold text-md bg-base-300 flex justify-between items-center p-5 sm:p-6  lg:text-xl" />
         </Link>
       </div>
       <div className="flex gap-5 items-center">
@@ -25,12 +25,21 @@ export default function NavBar() {
           <p className="hover:text-primary">Contact</p>
         </Link>
         {theme == "dark" && (
-          <LuSun className={iconStyling} onClick={() => setTheme("light")} />
+          <LuSun
+            className="font-bold text-md bg-base-300 flex justify-between items-center p-5 sm:p-6  lg:text-xl"
+            onClick={() => setTheme("light")}
+          />
         )}
         {theme == "light" && (
-          <LuMoon className={iconStyling} onClick={() => setTheme("dark")} />
+          <LuMoon
+            className="font-bold text-md bg-base-300 flex justify-between items-center p-5 sm:p-6  lg:text-xl"
+            onClick={() => setTheme("dark")}
+          />
         )}
-        <a href="https://github.com/Hampus2001" className={iconStyling}>
+        <a
+          href="https://github.com/Hampus2001"
+          className="font-bold text-md bg-base-300 flex justify-between items-center p-5 sm:p-6  lg:text-xl"
+        >
           <FaGithub />
         </a>
       </div>
