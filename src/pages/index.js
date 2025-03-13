@@ -20,6 +20,7 @@ export default function Home() {
       >
         <div className="flex flex-col text-sm md:text-3xl 2xl:text-4xl xl:gap-5">
           <p>My Name is</p>
+          <p>Hejsan</p>
           <h1 className="text-2xl text-transparent bg-clip-text bg-gradient-to-r from-primary to-secondary font-bold mb-5 sm:text-4xl md:text-5xl 2xl:text-7xl">
             Hampus Söderlund
           </h1>
