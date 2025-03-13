@@ -10,8 +10,13 @@ export default function NavBar() {
   const iconStyling =
     "text-xl sm:text-4xl hover:cursor-pointer hover:text-primary";
 
+  const darkThemeCard =
+    "font-bold text-md bg-gray-900 text-gray-300  flex justify-between items-center p-5 sm:p-6  lg:text-xl";
+  const lightThemeCard =
+    "font-bold text-md bg-neutral-300 text-base-content flex justify-between items-center p-5 sm:p-6  lg:text-xl";
+
   return (
-    <div className="font-bold text-md bg-base-300 flex justify-between items-center p-5 sm:p-6  lg:text-xl">
+    <div className={theme == "dark" ? darkThemeCard : lightThemeCard}>
       <div>
         <Link href="/">
           <FaHome className={iconStyling} />
