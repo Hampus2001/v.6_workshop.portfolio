@@ -49,7 +49,7 @@ export default function Admin() {
 
   for (let i = 0; i < projects.length; i++) {
     displayProjects.push(
-      <div className="w-full lg:w-2/3 shadow-lg shadow-base rounded-lg">
+      <div className="w-3/4 lg:w-2/3 shadow-lg shadow-base rounded-lg">
         <img className="h-auto w-auto rounded-t-lg" src={projects[i].image} />
         <div
           className="flex flex-col text-base-content w-full gap-4 sm:gap-8 shadow-lg p-5 rounded-b-lg bg-base-300"
@@ -125,7 +125,7 @@ export default function Admin() {
 
   //Adminpage return:
   return (
-    <div className="flex flex-col min-h-screen p-10">
+    <div className="flex flex-col min-h-screen py-5 lg:py-0 lg:p-10">
       <div className="flex flex-col items-center">
         {!loggedIn && (
           <form className="flex flex-col lg:w-2/5 gap-2 lg:gap-5 p-10 items-center justify-center">
@@ -151,8 +151,8 @@ export default function Admin() {
           </form>
         )}
         {loggedIn && (
-          <div className="flex flex-col items-center gap-10 ">
-            <div className="flex flex-col w-full lg:w-2/3 bg-base-300 rounded-lg shadow-lg shadow-base ">
+          <div className="flex w-full flex-col items-center gap-10 ">
+            <div className="flex flex-col w-4/5  lg:w-2/3 bg-base-300 rounded-lg shadow-lg shadow-base ">
               <input
                 type="file"
                 className="bg-base-200 py-20 md:py-60 px-5 text-lg lg:text-4xl rounded-t-lg"
