@@ -14,7 +14,7 @@ export default function Card() {
 
   for (let i = 0; i < projects.length; i++) {
     displayProjects.push(
-      <div className={theme == "dark" ? darkThemeCard : lightThemeCard}>
+      <div className={theme == "dark" ? darkThemeCard : lightThemeCard} key={i}>
         <img
           src={projects[i].image}
           alt="Project screenshot"
