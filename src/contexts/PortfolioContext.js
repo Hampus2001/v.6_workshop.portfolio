@@ -10,7 +10,7 @@ export default function PortfolioContext({ children }) {
       description:
         'Group project from school. Uses AI API and custom prompts to generate desired output. I\'ve created the page "recipe," which generates random recipes on selected food category!',
       year: "2025",
-      link: "https://gemini-project-one.vercel.app/",
+      link: "https://gemini-project-one.vercel.app/Hampus",
       techSkills: "React, Tailwind, Git, DaisyUI",
       id: "",
     },
