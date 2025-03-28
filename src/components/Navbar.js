@@ -23,9 +23,6 @@ export default function NavBar() {
         </Link>
       </div>
       <div className="flex gap-5 items-center">
-        <Link href="/about">
-          <p className="hover:text-primary">About</p>
-        </Link>
         <Link href="/contact">
           <p className="hover:text-primary">Contact</p>
         </Link>
