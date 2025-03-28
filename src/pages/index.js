@@ -51,14 +51,14 @@ export default function Home() {
             id="myTechStacks"
             className="flex flex-col gap-5 justify-between items-center md:gap-20"
           >
-            <div className="flex w-full justify-between text-5xl sm:text-6xl lg:text-7xl">
+            <div className="flex w-full justify-between text-5xl sm:text-6xl lg:text-8xl">
               <FaHtml5 className="text-red-500" />
               <FaCss3Alt className="text-blue-500" />
               <FaReact className="text-sky-500" />
               <RiTailwindCssFill className="text-sky-400" />
               <IoLogoJavascript className="text-yellow-400" />
             </div>
-            <div className="flex w-full justify-between text-5xl sm:text-6xl lg:text-7xl">
+            <div className="flex w-full justify-between text-5xl sm:text-6xl lg:text-8xl">
               <FaGitAlt className="text-orange-600" />
               <RiNextjsFill
                 className={`${
