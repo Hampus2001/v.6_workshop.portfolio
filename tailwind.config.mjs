@@ -14,7 +14,10 @@ export default {
       },
     },
   },
-  plugins: [require("daisyui")],
+  plugins: [
+    require("daisyui"),
+    require("@designbycode/tailwindcss-text-shadow"),
+  ],
   daisyui: {
     themes: ["light", "dark"],
   },
