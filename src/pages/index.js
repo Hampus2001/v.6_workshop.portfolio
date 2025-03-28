@@ -49,16 +49,16 @@ export default function Home() {
           </div>
           <div
             id="myTechStacks"
-            className="flex flex-col gap-5 justify-between items-center md:gap-36"
+            className="flex flex-col gap-5 justify-between items-center md:gap-20"
           >
-            <div className="flex w-full justify-between text-5xl sm:text-7xl lg:text-9xl">
+            <div className="flex w-full justify-between text-5xl sm:text-6xl lg:text-7xl">
               <FaHtml5 className="text-red-500" />
               <FaCss3Alt className="text-blue-500" />
               <FaReact className="text-sky-500" />
               <RiTailwindCssFill className="text-sky-400" />
               <IoLogoJavascript className="text-yellow-400" />
             </div>
-            <div className="flex w-full justify-between text-5xl sm:text-7xl lg:text-9xl">
+            <div className="flex w-full justify-between text-5xl sm:text-6xl lg:text-7xl">
               <FaGitAlt className="text-orange-600" />
               <RiNextjsFill
                 className={`${
@@ -76,12 +76,11 @@ export default function Home() {
           </div>
         </div>
 
-        <div
-          id="projects"
-          className="flex-wrap flex justify-center  gap-10 md:gap-32"
-        >
+        <div className="flex flex-col items-center gap-20">
           <h2 className="text-lg md:text-2xl">PROJECTS</h2>
-          <Card />
+          <div id="projects" className="flex-wrap flex justify-between gap-10">
+            <Card />
+          </div>
         </div>
       </div>
     </>

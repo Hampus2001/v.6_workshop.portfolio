@@ -8,9 +8,9 @@ export default function Card() {
   const displayProjects = [];
 
   const darkThemeCard =
-    "bg-gray-900 text-gray-300 shadow-xl rounded-lg dark:shadow-neutral-950";
+    "w-full sm:w-5/12 bg-gray-900 text-gray-300 shadow-xl rounded-lg dark:shadow-neutral-950";
   const lightThemeCard =
-    "bg-neutral-300 text-base-content shadow-xl rounded-lg shadow-neutral-500";
+    "w-full sm:w-5/12 bg-neutral-300 text-base-content shadow-xl rounded-lg shadow-neutral-500";
 
   for (let i = 0; i < projects.length; i++) {
     displayProjects.push(
@@ -21,21 +21,21 @@ export default function Card() {
           className="h-auto w-auto rounded-t-lg"
         />
         <div key={i} className="flex justify-center w-full">
-          <div className="flex flex-col w-full gap-4 sm:gap-8 p-5 lg:p-20 rounded-b-lg">
-            <h2 className="text-2xl lg:text-5xl font-bold tracking-widest">
+          <div className="flex flex-col w-full gap-4 lg:gap-5 p-5 lg:p-10 rounded-b-lg">
+            <h2 className="text-sm sm:text-lg lg:text-2xl font-bold tracking-widest">
               {projects[i].title}
             </h2>
-            <p className="tracking-wide text-sm sm:text-lg lg:text-3xl">
+            <p className=" sm:tracking-wide text-xs lg:text-lg">
               {projects[i].description}
             </p>
-            <p className="py-5 text-sm sm:text-lg lg:text-3xl">
+            <p className="py-2 text-xs lg:text-lg">
               Tech stack: {projects[i].techSkills}
             </p>
-            <div className="flex justify-between items-center text-sm sm:text-lg lg:text-3xl">
+            <div className="flex justify-between items-center text-xs lg:text-lg">
               <p>Year: {projects[i].year}</p>
               <a
                 href={projects[i].link}
-                className="bg-base-content text-base-100 p-2 lg:p-5 rounded-lg"
+                className="bg-base-content text-base-100 p-2 rounded-lg"
               >
                 Link
               </a>
