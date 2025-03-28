@@ -34,7 +34,7 @@ export default function Home() {
             <h1 className="text-2xl text-transparent bg-clip-text bg-gradient-to-r from-primary to-secondary font-bold mb-5 sm:text-4xl md:text-5xl 2xl:text-7xl">
               Hampus Söderlund
             </h1>
-            <p className="text-sm sm:text-base">I build things for web</p>
+            <p>I build things for web</p>
           </div>
           <img
             className="w-28 h-28 rounded-full md:w-52 md:h-52 lg:w-64 lg:h-64 2xl:w-80 2xl:h-80 object-cover aspect-square "
