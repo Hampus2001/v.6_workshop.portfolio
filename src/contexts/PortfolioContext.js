@@ -18,7 +18,7 @@ export default function PortfolioContext({ children }) {
       image: "./images/pokemonPage.png",
       title: "Pokemon Collection",
       description:
-        "Digital Pokémon collection: Showcase your cards without bringing them! With this site, you can generate all Pokémon sets and cards using an API..",
+        "Digital Pokémon collection: Showcase your cards without bringing them! With this site, you can generate all Pokémon sets and cards using an API and save them to your digital collection.",
       year: "2025",
       link: "https://pokemon-one-bay.vercel.app/",
       techSkills: "Next.js, Tailwind, Git",

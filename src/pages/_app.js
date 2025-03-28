@@ -11,7 +11,6 @@ const merriweather = Merriweather({ weight: "400", subsets: ["latin"] });
 function MainLayout({ Component, pageProps }) {
   const { theme } = useContext(HandleThemeContext);
 
-  console.log("theme", theme);
 
   return (
     <main className={merriweather.className} data-theme={theme}>
