@@ -24,6 +24,16 @@ export default function PortfolioContext({ children }) {
       techSkills: "Next.js, Tailwind, Git",
       id: "",
     },
+    {
+      image: "./images/matchmetrics.png",
+      title: "MatchMetrics",
+      description:
+        "Side project. Live scores, upcomming fixtures, teams and leagues! Working with backend-developer.",
+      year: "2025",
+      link: "https://matchmetrix-frontend-frame.vercel.app/",
+      techSkills: "Next.js, Tailwind, Git, express",
+      id: "",
+    },
   ]);
 
   return (

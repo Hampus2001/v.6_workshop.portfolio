@@ -78,7 +78,10 @@ export default function Home() {
 
         <div className="flex flex-col items-center gap-20">
           <h2 className="text-lg md:text-2xl">PROJECTS</h2>
-          <div id="projects" className="flex-wrap flex justify-between gap-10">
+          <div
+            id="projects"
+            className="flex-wrap flex justify-between gap-10 lg:gap-20"
+          >
             <Card />
           </div>
         </div>
